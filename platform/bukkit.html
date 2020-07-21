@@ -1,0 +1,353 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Bukkit &mdash; Adventure 4.0.0-SNAPSHOT documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/kyori.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/tabs.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.js"></script>
+        <script src="../_static/sphinx_tabs/tabs.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="BungeeCord" href="bungeecord.html" />
+    <link rel="prev" title="Platforms" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Adventure
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.0-SNAPSHOT
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../audiences.html">Audiences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text.html">Text (Chat Components)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../serializer/index.html">Text Serializers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bossbar.html">Boss Bars</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sound.html">Sound</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../title.html">Titles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book.html">Books</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../minimessage.html">MiniMessage (Textual format for components)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Platforms</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Bukkit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#component-serializers">Component serializers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bungeecord.html">BungeeCord</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spongeapi.html">SpongeAPI</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Adventure</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Platforms</a> &raquo;</li>
+        
+      <li>Bukkit</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>The Adventure docs are currently a <strong>work in progress</strong>. Some areas may have limited coverage or may not be entirely up to date.
+Feel free to join our discord at <a class="reference external" href="https://discord.gg/MMfhJ8F">https://discord.gg/MMfhJ8F</a> if you have any questions.</p>
+</div>
+<div class="section" id="bukkit">
+<h1>Bukkit<a class="headerlink" href="#bukkit" title="Permalink to this headline">¶</a></h1>
+<p>Adventure targets Paper, Spigot, and Bukkit 1.7.10 through 1.16.1.</p>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>Add the artifact to your build file:</p>
+<p>First, add the repository:</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-TWF2ZW4= docutils container">
+<div class="docutils container">
+<p>Maven</p>
+</div>
+</div>
+<div class="item sphinx-data-tab-R3JhZGxlIChHcm9vdnkp docutils container">
+<div class="docutils container">
+<p>Gradle (Groovy)</p>
+</div>
+</div>
+<div class="item sphinx-data-tab-R3JhZGxlIChLb3RsaW4p docutils container">
+<div class="docutils container">
+<p>Gradle (Kotlin)</p>
+</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-TWF2ZW4= active docutils container">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;repositories&gt;</span>
+    <span class="c">&lt;!-- ... --&gt;</span>
+    <span class="nt">&lt;repository&gt;</span> <span class="c">&lt;!-- for development builds --&gt;</span>
+      <span class="nt">&lt;id&gt;</span>sonatype-oss<span class="nt">&lt;/id&gt;</span>
+      <span class="nt">&lt;url&gt;</span>https://oss.sonatype.org/content/repositories/snapshots/<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;/repository&gt;</span>
+    <span class="c">&lt;!-- ... --&gt;</span>
+<span class="nt">&lt;/repositories&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-R3JhZGxlIChHcm9vdnkp docutils container">
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">repositories</span> <span class="o">{</span>
+   <span class="c1">// for development builds</span>
+   <span class="n">maven</span> <span class="o">{</span>
+       <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;sonatype-oss&#39;</span>
+       <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://oss.sonatype.org/content/repositories/snapshots/&#39;</span>
+   <span class="o">}</span>
+   <span class="c1">// for releases</span>
+   <span class="n">mavenCentral</span><span class="o">()</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-R3JhZGxlIChLb3RsaW4p docutils container">
+<div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">repositories</span> <span class="p">{</span>
+   <span class="c1">// for development builds</span>
+   <span class="n">maven</span><span class="p">(</span><span class="n">url</span> <span class="p">=</span> <span class="s">&quot;https://oss.sonatype.org/content/repositories/snapshots/&quot;</span><span class="p">)</span> <span class="p">{</span>
+       <span class="n">name</span> <span class="p">=</span> <span class="s">&quot;sonatype-oss&quot;</span>
+   <span class="p">}</span>
+   <span class="c1">// for releases</span>
+   <span class="n">mavenCentral</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>Declaring the dependency:</p>
+</div>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-TWF2ZW4= docutils container">
+<div class="docutils container">
+<p>Maven</p>
+</div>
+</div>
+<div class="item sphinx-data-tab-R3JhZGxlIChHcm9vdnkp docutils container">
+<div class="docutils container">
+<p>Gradle (Groovy)</p>
+</div>
+</div>
+<div class="item sphinx-data-tab-R3JhZGxlIChLb3RsaW4p docutils container">
+<div class="docutils container">
+<p>Gradle (Kotlin)</p>
+</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-TWF2ZW4= active docutils container">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+<span class="nt">&lt;groupId&gt;</span>net.kyori<span class="nt">&lt;/groupId&gt;</span>
+<span class="nt">&lt;artifactId&gt;</span>adventure-platform-bukkit<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;version&gt;</span>4.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-R3JhZGxlIChHcm9vdnkp docutils container">
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">dependencies</span> <span class="o">{</span>
+   <span class="n">implementation</span> <span class="s1">&#39;net.kyori:adventure-platform-bukkit:4.0.0-SNAPSHOT&#39;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-R3JhZGxlIChLb3RsaW4p docutils container">
+<div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">dependencies</span> <span class="p">{</span>
+   <span class="n">implementation</span><span class="p">(</span><span class="s">&quot;net.kyori:adventure-platform-bukkit:4.0.0-SNAPSHOT&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="component-serializers">
+<h2>Component serializers<a class="headerlink" href="#component-serializers" title="Permalink to this headline">¶</a></h2>
+<p>The Bukkit platform provides the <code class="docutils literal notranslate"><span class="pre">MinecraftComponentSerializer</span></code> (available on Craftbukkit-based servers), and the <code class="docutils literal notranslate"><span class="pre">BungeeCordComponentSerializer</span></code> (available on Spigot and Paper servers) to convert directly between Adventure <a class="reference internal" href="../text.html"><span class="doc">Components</span></a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="bungeecord.html" class="btn btn-neutral float-right" title="BungeeCord" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Platforms" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, KyoriPowered
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

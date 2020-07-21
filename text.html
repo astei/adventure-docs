@@ -1,0 +1,289 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Text (Chat Components) &mdash; Adventure 4.0.0-SNAPSHOT documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/kyori.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Text Serializers" href="serializer/index.html" />
+    <link rel="prev" title="Audiences" href="audiences.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Adventure
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.0-SNAPSHOT
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="audiences.html">Audiences</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Text (Chat Components)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#creating-components">Creating components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#serializing-and-deserializing-components">Serializing and deserializing components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-components-within-your-application">Using components within your application</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="serializer/index.html">Text Serializers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bossbar.html">Boss Bars</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sound.html">Sound</a></li>
+<li class="toctree-l1"><a class="reference internal" href="title.html">Titles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="book.html">Books</a></li>
+<li class="toctree-l1"><a class="reference internal" href="minimessage.html">MiniMessage (Textual format for components)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="platform/index.html">Platforms</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Adventure</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Text (Chat Components)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>The Adventure docs are currently a <strong>work in progress</strong>. Some areas may have limited coverage or may not be entirely up to date.
+Feel free to join our discord at <a class="reference external" href="https://discord.gg/MMfhJ8F">https://discord.gg/MMfhJ8F</a> if you have any questions.</p>
+</div>
+<div class="section" id="text-chat-components">
+<h1>Text (Chat Components)<a class="headerlink" href="#text-chat-components" title="Permalink to this headline">¶</a></h1>
+<p>Components represent Minecraft chat components</p>
+<div class="section" id="creating-components">
+<h2>Creating components<a class="headerlink" href="#creating-components" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Creates a line of text saying &quot;You&#39;re a Bunny! Press &lt;key&gt; to jump!&quot;, with some colouring and styling.</span>
+<span class="kd">final</span> <span class="n">TextComponent</span> <span class="n">textComponent</span> <span class="o">=</span> <span class="n">TextComponent</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;You&#39;re a &quot;</span><span class="p">)</span>
+  <span class="p">.</span><span class="na">color</span><span class="p">(</span><span class="n">TextColor</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mh">0x443344</span><span class="p">))</span>
+  <span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">TextComponent</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;Bunny&quot;</span><span class="p">).</span><span class="na">color</span><span class="p">(</span><span class="n">NamedTextColor</span><span class="p">.</span><span class="na">LIGHT_PURPLE</span><span class="p">))</span>
+  <span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">TextComponent</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;! Press &quot;</span><span class="p">))</span>
+  <span class="p">.</span><span class="na">append</span><span class="p">(</span>
+    <span class="n">KeybindComponent</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;key.jump&quot;</span><span class="p">)</span>
+      <span class="p">.</span><span class="na">color</span><span class="p">(</span><span class="n">NamedTextColor</span><span class="p">.</span><span class="na">LIGHT_PURPLE</span><span class="p">)</span>
+      <span class="p">.</span><span class="na">decoration</span><span class="p">(</span><span class="n">TextDecoration</span><span class="p">.</span><span class="na">BOLD</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+  <span class="p">)</span>
+  <span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">TextComponent</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot; to jump!&quot;</span><span class="p">));</span>
+<span class="c1">// now you can send `textComponent` to something, such as a client</span>
+</pre></div>
+</div>
+<p>You can also use a builder, which is mutable, and creates one final
+component with the children.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Creates a line of text saying &quot;You&#39;re a Bunny! Press &lt;key&gt; to jump!&quot;, with some colouring and styling.</span>
+<span class="kd">final</span> <span class="n">TextComponent</span> <span class="n">textComponent2</span> <span class="o">=</span> <span class="n">TextComponent</span><span class="p">.</span><span class="na">builder</span><span class="p">().</span><span class="na">content</span><span class="p">(</span><span class="s">&quot;You&#39;re a &quot;</span><span class="p">)</span>
+  <span class="p">.</span><span class="na">color</span><span class="p">(</span><span class="n">TextColor</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mh">0x443344</span><span class="p">))</span>
+  <span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">TextComponent</span><span class="p">.</span><span class="na">builder</span><span class="p">(</span><span class="s">&quot;Bunny&quot;</span><span class="p">).</span><span class="na">color</span><span class="p">(</span><span class="n">NamedTextColor</span><span class="p">.</span><span class="na">LIGHT_PURPLE</span><span class="p">).</span><span class="na">build</span><span class="p">())</span>
+  <span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">TextComponent</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;! Press &quot;</span><span class="p">))</span>
+  <span class="p">.</span><span class="na">append</span><span class="p">(</span>
+    <span class="n">KeybindComponent</span><span class="p">.</span><span class="na">builder</span><span class="p">(</span><span class="s">&quot;key.jump&quot;</span><span class="p">)</span>
+      <span class="p">.</span><span class="na">color</span><span class="p">(</span><span class="n">NamedTextColor</span><span class="p">.</span><span class="na">LIGHT_PURPLE</span><span class="p">)</span>
+      <span class="p">.</span><span class="na">decoration</span><span class="p">(</span><span class="n">TextDecoration</span><span class="p">.</span><span class="na">BOLD</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+      <span class="p">.</span><span class="na">build</span><span class="p">()</span>
+  <span class="p">)</span>
+  <span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">TextComponent</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot; to jump!&quot;</span><span class="p">))</span>
+  <span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="c1">// now you can send `textComponent2` to something, such as a client</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="serializing-and-deserializing-components">
+<h2>Serializing and deserializing components<a class="headerlink" href="#serializing-and-deserializing-components" title="Permalink to this headline">¶</a></h2>
+<p>Serialization to JSON, legacy and plain representations is also
+supported.</p>
+<p>Components can be serialized with <a class="reference internal" href="serializer/index.html"><span class="doc">Text Serializers</span></a>.</p>
+</div>
+<div class="section" id="using-components-within-your-application">
+<h2>Using components within your application<a class="headerlink" href="#using-components-within-your-application" title="Permalink to this headline">¶</a></h2>
+<p>The way you use components within your application will of course vary
+depending on what you’re aiming to achieve.</p>
+<p>However, the most common task is likely to be sending a component to
+some sort of Minecraft client. The method for doing this will depend on
+the platform your program is running on, however it is likely to involve
+serializing the component to Minecraft’s JSON format, and then sending
+the JSON through another method provided by the platform.</p>
+<p>The text library is platform agnostic and therefore doesn’t provide any
+way to send components to clients. However, some platform adapters
+(which make this easy!) can be found in the
+<a class="reference external" href="https://github.com/KyoriPowered/adventure-platform">adventure-platform</a>
+project.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="serializer/index.html" class="btn btn-neutral float-right" title="Text Serializers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="audiences.html" class="btn btn-neutral float-left" title="Audiences" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, KyoriPowered
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

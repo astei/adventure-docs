@@ -1,0 +1,636 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MiniMessage (Textual format for components) &mdash; Adventure 4.0.0-SNAPSHOT documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/kyori.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" type="text/css" />
+  <link rel="stylesheet" href="_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" type="text/css" />
+  <link rel="stylesheet" href="_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" type="text/css" />
+  <link rel="stylesheet" href="_static/sphinx_tabs/tabs.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.js"></script>
+        <script src="_static/sphinx_tabs/tabs.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Platforms" href="platform/index.html" />
+    <link rel="prev" title="Books" href="book.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Adventure
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.0-SNAPSHOT
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="audiences.html">Audiences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="text.html">Text (Chat Components)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serializer/index.html">Text Serializers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bossbar.html">Boss Bars</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sound.html">Sound</a></li>
+<li class="toctree-l1"><a class="reference internal" href="title.html">Titles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="book.html">Books</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MiniMessage (Textual format for components)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#placeholder">Placeholder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#template">Template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#format">Format</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#a-note-on-inner-components">A note on inner components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-components">The Components</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#color">Color</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#color-2-hex-rgb">Color (2, hex/rgb)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#decoration">Decoration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reset">Reset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#click">Click</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hover">Hover</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#keybind">Keybind</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#translatable">Translatable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#insertion">Insertion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pre">Pre</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rainbow">Rainbow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gradient">Gradient</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#markdown">Markdown</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="platform/index.html">Platforms</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Adventure</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>MiniMessage (Textual format for components)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>The Adventure docs are currently a <strong>work in progress</strong>. Some areas may have limited coverage or may not be entirely up to date.
+Feel free to join our discord at <a class="reference external" href="https://discord.gg/MMfhJ8F">https://discord.gg/MMfhJ8F</a> if you have any questions.</p>
+</div>
+<div class="section" id="minimessage-textual-format-for-components">
+<h1>MiniMessage (Textual format for components)<a class="headerlink" href="#minimessage-textual-format-for-components" title="Permalink to this headline">¶</a></h1>
+<p>String based format to represent components easily, focusing on the ability to be easily editable.</p>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>Adding the repository</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-TWF2ZW4= docutils container">
+<div class="docutils container">
+<p>Maven</p>
+</div>
+</div>
+<div class="item sphinx-data-tab-R3JhZGxlIChHcm9vdnkp docutils container">
+<div class="docutils container">
+<p>Gradle (Groovy)</p>
+</div>
+</div>
+<div class="item sphinx-data-tab-R3JhZGxlIChLb3RsaW4p docutils container">
+<div class="docutils container">
+<p>Gradle (Kotlin)</p>
+</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-TWF2ZW4= active docutils container">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;repositories&gt;</span>
+    <span class="c">&lt;!-- ... --&gt;</span>
+    <span class="nt">&lt;repository&gt;</span> <span class="c">&lt;!-- for development builds --&gt;</span>
+      <span class="nt">&lt;id&gt;</span>sonatype-oss<span class="nt">&lt;/id&gt;</span>
+      <span class="nt">&lt;url&gt;</span>https://oss.sonatype.org/content/repositories/snapshots/<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;/repository&gt;</span>
+    <span class="c">&lt;!-- ... --&gt;</span>
+<span class="nt">&lt;/repositories&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-R3JhZGxlIChHcm9vdnkp docutils container">
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">repositories</span> <span class="o">{</span>
+   <span class="c1">// for development builds</span>
+   <span class="n">maven</span> <span class="o">{</span>
+       <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;sonatype-oss&#39;</span>
+       <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://oss.sonatype.org/content/repositories/snapshots/&#39;</span>
+   <span class="o">}</span>
+   <span class="c1">// for releases</span>
+   <span class="n">mavenCentral</span><span class="o">()</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-R3JhZGxlIChLb3RsaW4p docutils container">
+<div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">repositories</span> <span class="p">{</span>
+   <span class="c1">// for development builds</span>
+   <span class="n">maven</span><span class="p">(</span><span class="n">url</span> <span class="p">=</span> <span class="s">&quot;https://oss.sonatype.org/content/repositories/snapshots/&quot;</span><span class="p">)</span> <span class="p">{</span>
+       <span class="n">name</span> <span class="p">=</span> <span class="s">&quot;sonatype-oss&quot;</span>
+   <span class="p">}</span>
+   <span class="c1">// for releases</span>
+   <span class="n">mavenCentral</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>Declaring the dependency:</p>
+</div>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-TWF2ZW4= docutils container">
+<div class="docutils container">
+<p>Maven</p>
+</div>
+</div>
+<div class="item sphinx-data-tab-R3JhZGxlIChHcm9vdnkp docutils container">
+<div class="docutils container">
+<p>Gradle (Groovy)</p>
+</div>
+</div>
+<div class="item sphinx-data-tab-R3JhZGxlIChLb3RsaW4p docutils container">
+<div class="docutils container">
+<p>Gradle (Kotlin)</p>
+</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-TWF2ZW4= active docutils container">
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+   <span class="nt">&lt;groupId&gt;</span>net.kyori<span class="nt">&lt;/groupId&gt;</span>
+   <span class="nt">&lt;artifactId&gt;</span>adventure-text-minimessage<span class="nt">&lt;/artifactId&gt;</span>
+   <span class="nt">&lt;version&gt;</span>3.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-R3JhZGxlIChHcm9vdnkp docutils container">
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">dependencies</span> <span class="o">{</span>
+   <span class="n">implementation</span> <span class="s1">&#39;net.kyori:adventure-text-minimessage:.0.0-SNAPSHOT&#39;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-R3JhZGxlIChLb3RsaW4p docutils container">
+<div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">dependencies</span> <span class="p">{</span>
+   <span class="n">implementation</span><span class="p">(</span><span class="s">&quot;net.kyori:adventure-text-minimessage:3.0.0-SNAPSHOT&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="api">
+<h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+<p>MiniMessage exposes a simple API via the, suprise, <code class="docutils literal notranslate"><span class="pre">MiniMessage</span></code> class.</p>
+<p>There are two different instances of that interface, <code class="docutils literal notranslate"><span class="pre">get()</span></code> and <code class="docutils literal notranslate"><span class="pre">markdown()</span></code>, the latter one provides simple markdown support, ontop of the MiniMessage format. More about that in the <a class="reference internal" href="#markdown">Markdown</a> section.</p>
+<p>MiniMessage allows you to both serialize components into MiniMessage strings and to parse/deserialize MiniMessage strings into components.</p>
+</div>
+<div class="section" id="placeholder">
+<h2>Placeholder<a class="headerlink" href="#placeholder" title="Permalink to this headline">¶</a></h2>
+<p>TODO write about placeholders and templates</p>
+<div class="section" id="template">
+<h3>Template<a class="headerlink" href="#template" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="format">
+<h2>Format<a class="headerlink" href="#format" title="Permalink to this headline">¶</a></h2>
+<p>This library uses tags. Everything you do will be defined with tags. Tags have a start tag and an end tag (the <code class="docutils literal notranslate"><span class="pre">&lt;reset&gt;</span></code> tag is an exception here).
+Start tags are mandatory (obviously), end tags aren’t.
+<code class="docutils literal notranslate"><span class="pre">&lt;yellow&gt;Hello</span> <span class="pre">&lt;blue&gt;World&lt;yellow&gt;!</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;yellow&gt;Hello</span> <span class="pre">&lt;blue&gt;World&lt;/blue&gt;!</span></code> and even <code class="docutils literal notranslate"><span class="pre">&lt;yellow&gt;Hello</span> <span class="pre">&lt;/yellow&gt;&lt;blue&gt;World&lt;/blue&gt;&lt;yellow&gt;!&lt;/yellow&gt;</span></code> all do the same.</p>
+<p>Some tags have inner tags. Those look like this: <code class="docutils literal notranslate"><span class="pre">&lt;tag:inner&gt;stuff&lt;/tag&gt;</span></code>. For example: <code class="docutils literal notranslate"><span class="pre">&lt;hover:show_text:&quot;&lt;red&gt;test:TEST&quot;&gt;TEST</span></code> or <code class="docutils literal notranslate"><span class="pre">&lt;click:run_command:test&gt;TEST</span></code>
+As you can see, those sometimes contain components, sometimes just strings. Refer to the detailed docs below.</p>
+<p>Single (<code class="docutils literal notranslate"><span class="pre">'</span></code>) and double (<code class="docutils literal notranslate"><span class="pre">&quot;</span></code>) quotes can be used interchangeably, but please stay consistent.</p>
+<p>The components try to represent vanilla as closely as possible.
+It might to helpful to use <a class="reference external" href="https://minecraft.gamepedia.com/Raw_JSON_text_format">the minecraft wiki</a> as a reference, especially for stuff like the actions and values of click and hover events.</p>
+<div class="section" id="a-note-on-inner-components">
+<h3>A note on inner components<a class="headerlink" href="#a-note-on-inner-components" title="Permalink to this headline">¶</a></h3>
+<p>Some components (like hover and translate) support nested/inner components. This feature is a total mess. It’s best to assume that it only works because of luck.
+Following things are known to be broken in inner components and should not be used:
+* Colons (<code class="docutils literal notranslate"><span class="pre">:</span></code>)
+* Quotation marks (both single <code class="docutils literal notranslate"><span class="pre">'</span></code> and double <code class="docutils literal notranslate"><span class="pre">&quot;</span></code>), altho you may have luck with escaping them like this <code class="docutils literal notranslate"><span class="pre">\&quot;</span></code></p>
+<p>Please don’t open issues about such cases, I don’t think that I’ll able to fix them. PRs are welcome tho!
+There are two <code class="docutils literal notranslate"><span class="pre">&#64;Ignore</span></code>’d unit cases that are disabled due to these limitations.</p>
+</div>
+<div class="section" id="the-components">
+<h3>The Components<a class="headerlink" href="#the-components" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="color">
+<h4>Color<a class="headerlink" href="#color" title="Permalink to this headline">¶</a></h4>
+<p>Color the next parts</p>
+<dl class="simple">
+<dt>Tag</dt><dd><p><code class="docutils literal notranslate"><span class="pre">&lt;_colorname_&gt;</span></code></p>
+</dd>
+<dt>Arguments</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">_colorname_</span></code>, all minecraft color constants (check <a class="reference external" href="https://github.com/KyoriPowered/adventure/blob/master/api/src/main/java/net/kyori/adventure/text/format/NamedTextColor.java">here</a>)</p></li>
+</ul>
+</dd>
+<dt>Examples</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;yellow&gt;Hello</span> <span class="pre">&lt;blue&gt;World&lt;/blue&gt;!</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;red&gt;This</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">&lt;green&gt;test!</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<img alt="https://i.imgur.com/wB32YpZ.png" src="https://i.imgur.com/wB32YpZ.png" />
+<img alt="https://i.imgur.com/vsN3OHa.png" src="https://i.imgur.com/vsN3OHa.png" />
+</div>
+<div class="section" id="color-2-hex-rgb">
+<h4>Color (2, hex/rgb)<a class="headerlink" href="#color-2-hex-rgb" title="Permalink to this headline">¶</a></h4>
+<p>A different, more flexible way (supports hex colors!) for colors looks like this</p>
+<dl class="simple">
+<dt>Tag:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">&lt;color:_colorNameOrHex_&gt;</span></code></p>
+</dd>
+<dt>Arguments:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">_colorNameOrHex_</span></code>, can be all the values from above, or hex colors (in 1.16)</p></li>
+</ul>
+</dd>
+<dt>Examples</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;color:yellow&gt;Hello</span> <span class="pre">&lt;color:blue&gt;World&lt;/color:blue&gt;!</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;color:#FF5555&gt;This</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">&lt;color:#55FF55&gt;test!</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<img alt="https://i.imgur.com/wB32YpZ.png" src="https://i.imgur.com/wB32YpZ.png" />
+<img alt="https://i.imgur.com/vsN3OHa.png" src="https://i.imgur.com/vsN3OHa.png" />
+</div>
+<div class="section" id="decoration">
+<h4>Decoration<a class="headerlink" href="#decoration" title="Permalink to this headline">¶</a></h4>
+<p>Decorate the next parts</p>
+<dl class="simple">
+<dt>Tag</dt><dd><p><code class="docutils literal notranslate"><span class="pre">&lt;_decorationname_&gt;</span></code></p>
+</dd>
+<dt>Arguments:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">_decorationname_</span></code> , all minecraft decorations (<a class="reference external" href="https://github.com/KyoriPowered/adventure/blob/master/api/src/main/java/net/kyori/adventure/text/format/TextDecoration.java">check here</a>)</p></li>
+</ul>
+</dd>
+<dt>Examples:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;underlined&gt;This</span> <span class="pre">is</span> <span class="pre">&lt;bold&gt;important&lt;/bold&gt;!</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<img alt="https://i.imgur.com/hREGXQy.png" src="https://i.imgur.com/hREGXQy.png" />
+</div>
+<div class="section" id="reset">
+<h4>Reset<a class="headerlink" href="#reset" title="Permalink to this headline">¶</a></h4>
+<p>Reset all colors, decorations, hovers etc. Doesn’t have a close tag</p>
+<dl class="simple">
+<dt>Tag</dt><dd><p><code class="docutils literal notranslate"><span class="pre">&lt;reset&gt;</span></code></p>
+</dd>
+<dt>Arguments</dt><dd><p>non</p>
+</dd>
+<dt>Examples</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;yellow&gt;&lt;bold&gt;Hello</span> <span class="pre">&lt;reset&gt;world!</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<img alt="https://i.imgur.com/bjInUhj.png" src="https://i.imgur.com/bjInUhj.png" />
+</div>
+<div class="section" id="click">
+<h4>Click<a class="headerlink" href="#click" title="Permalink to this headline">¶</a></h4>
+<p>Allows doing multiple things when clicking on the component.</p>
+<dl class="simple">
+<dt>Tag</dt><dd><p><code class="docutils literal notranslate"><span class="pre">&lt;click:_action_:_value_&gt;</span></code></p>
+</dd>
+<dt>Arguments</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">_action_</span></code>, the type of click event, one of <a class="reference external" href="https://github.com/KyoriPowered/adventure/blob/master/api/src/main/java/net/kyori/adventure/text/event/ClickEvent.java">this list</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_value_</span></code>, the argument for that particular event, refer to <a class="reference external" href="https://minecraft.gamepedia.com/Raw_JSON_text_format">the minecraft wiki</a></p></li>
+</ul>
+</dd>
+<dt>Examples</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;click:run_command:/say</span> <span class="pre">hello&gt;Click&lt;/click&gt;</span> <span class="pre">to</span> <span class="pre">say</span> <span class="pre">hello</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Click</span> <span class="pre">&lt;click:copy_to_clipboard:Haha</span> <span class="pre">you</span> <span class="pre">suck&gt;</span> <span class="pre">this</span> <span class="pre">&lt;/click&gt;to</span> <span class="pre">copy</span> <span class="pre">your</span> <span class="pre">score!</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<img alt="https://i.imgur.com/J82qOHn.png" src="https://i.imgur.com/J82qOHn.png" />
+</div>
+<div class="section" id="hover">
+<h4>Hover<a class="headerlink" href="#hover" title="Permalink to this headline">¶</a></h4>
+<p>Allows doing multiple things when hovering on the component.</p>
+<dl class="simple">
+<dt>Tag</dt><dd><p><code class="docutils literal notranslate"><span class="pre">&lt;hover:_action_:_value_</span></code></p>
+</dd>
+<dt>Arguments</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">_action_</span></code>, the type of hover event, one of this <a class="reference external" href="https://github.com/KyoriPowered/adventure/blob/master/api/src/main/java/net/kyori/adventure/text/event/HoverEvent.java">list</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_value_</span></code>, the argument for that particular event, refer to <a class="reference external" href="https://minecraft.gamepedia.com/Raw_JSON_text_format">the minecraft wiki</a></p></li>
+</ul>
+</dd>
+<dt>Examples</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;hover:show_text:'&lt;red&gt;test'&gt;TEST</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<img alt="https://i.imgur.com/VsHDPTI.png" src="https://i.imgur.com/VsHDPTI.png" />
+</div>
+<div class="section" id="keybind">
+<h4>Keybind<a class="headerlink" href="#keybind" title="Permalink to this headline">¶</a></h4>
+<p>Allows displaying the configured key for actions</p>
+<dl class="simple">
+<dt>Tag</dt><dd><p><code class="docutils literal notranslate"><span class="pre">&lt;key:_key_&gt;</span></code></p>
+</dd>
+<dt>Arguments</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">_key_</span></code>, the minecraft key of the action</p></li>
+</ul>
+</dd>
+<dt>Examples</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Press</span> <span class="pre">&lt;red&gt;&lt;key:key.jump&gt;</span> <span class="pre">to</span> <span class="pre">jump!</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<img alt="https://i.imgur.com/iQmNDF6.png" src="https://i.imgur.com/iQmNDF6.png" />
+</div>
+<div class="section" id="translatable">
+<h4>Translatable<a class="headerlink" href="#translatable" title="Permalink to this headline">¶</a></h4>
+<p>Allows displaying minecraft messages using the player locale</p>
+<dl class="simple">
+<dt>Tag</dt><dd><p><code class="docutils literal notranslate"><span class="pre">&lt;lang:_key_:_value1_:_value2_&gt;</span></code></p>
+</dd>
+<dt>Arguments</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">_key_</span></code>, the translation key</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_valueX_</span></code>, optional values that are used for placeholders in the key (they will end up in the <code class="docutils literal notranslate"><span class="pre">with</span></code> tag in the json)</p></li>
+</ul>
+</dd>
+<dt>Examples</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">You</span> <span class="pre">should</span> <span class="pre">get</span> <span class="pre">a</span> <span class="pre">&lt;lang:block.minecraft.diamond_block&gt;!</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;lang:commands.drop.success.single:'&lt;red&gt;1':'&lt;blue&gt;Stone'&gt;!</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<img alt="https://i.imgur.com/mpdDMF6.png" src="https://i.imgur.com/mpdDMF6.png" />
+<img alt="https://i.imgur.com/esWpnxm.png" src="https://i.imgur.com/esWpnxm.png" />
+</div>
+<div class="section" id="insertion">
+<h4>Insertion<a class="headerlink" href="#insertion" title="Permalink to this headline">¶</a></h4>
+<p>Allow insertion of text into chat via shift click</p>
+<dl class="simple">
+<dt>Tag</dt><dd><p><code class="docutils literal notranslate"><span class="pre">&lt;insertion:_text_&gt;</span></code></p>
+</dd>
+<dt>Arguments</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">_text_</span></code>, the text to insert</p></li>
+</ul>
+</dd>
+<dt>Examples</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Click</span> <span class="pre">&lt;insert:test&gt;this&lt;/insert&gt;</span> <span class="pre">to</span> <span class="pre">insert!</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<img alt="https://i.imgur.com/Imhom84.png" src="https://i.imgur.com/Imhom84.png" />
+</div>
+<div class="section" id="pre">
+<h4>Pre<a class="headerlink" href="#pre" title="Permalink to this headline">¶</a></h4>
+<p>Tags within this tag will not be parsed, useful for player input for example</p>
+<dl class="simple">
+<dt>Tag</dt><dd><p><code class="docutils literal notranslate"><span class="pre">&lt;pre&gt;</span></code></p>
+</dd>
+<dt>Arguments</dt><dd><p>non</p>
+</dd>
+<dt>Examples</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;gray&gt;&lt;&lt;yellow&gt;&lt;player&gt;&lt;gray&gt;&gt;</span> <span class="pre">&lt;reset&gt;&lt;pre&gt;&lt;message&gt;&lt;/pre&gt;</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<img alt="https://i.imgur.com/pQqaJnD.png" src="https://i.imgur.com/pQqaJnD.png" />
+</div>
+<div class="section" id="rainbow">
+<h4>Rainbow<a class="headerlink" href="#rainbow" title="Permalink to this headline">¶</a></h4>
+<p>Rainbow colored text?!</p>
+<dl class="simple">
+<dt>Tag</dt><dd><p><code class="docutils literal notranslate"><span class="pre">&lt;rainbow&gt;</span></code></p>
+</dd>
+<dt>Arguments</dt><dd><p>phase, optional</p>
+</dd>
+<dt>Examples</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;yellow&gt;Woo:</span> <span class="pre">&lt;rainbow&gt;||||||||||||||||||||||||&lt;/rainbow&gt;!</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;yellow&gt;Woo:</span> <span class="pre">&lt;rainbow:2&gt;||||||||||||||||||||||||&lt;/rainbow&gt;!</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<img alt="https://i.imgur.com/uNbyoYk.png" src="https://i.imgur.com/uNbyoYk.png" />
+</div>
+<div class="section" id="gradient">
+<h4>Gradient<a class="headerlink" href="#gradient" title="Permalink to this headline">¶</a></h4>
+<p>Gradient colored text</p>
+<dl class="simple">
+<dt>Tag</dt><dd><p><code class="docutils literal notranslate"><span class="pre">&lt;gradient:[color1]:[color2]&gt;</span></code></p>
+</dd>
+<dt>Arguments</dt><dd><p>color1 and 2, either hex or named colors</p>
+</dd>
+<dt>Examples</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;yellow&gt;Woo:</span> <span class="pre">&lt;gradient&gt;||||||||||||||||||||||||&lt;/gradient&gt;!</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;yellow&gt;Woo:</span> <span class="pre">&lt;gradient:#5e4fa2:#f79459&gt;||||||||||||||||||||||||&lt;/gradient&gt;!</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;yellow&gt;Woo:</span> <span class="pre">&lt;gradient:green:blue&gt;||||||||||||||||||||||||&lt;/gradient&gt;!</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<img alt="https://i.imgur.com/8qYHCWk.png" src="https://i.imgur.com/8qYHCWk.png" />
+</div>
+</div>
+</div>
+<div class="section" id="markdown">
+<h2>Markdown<a class="headerlink" href="#markdown" title="Permalink to this headline">¶</a></h2>
+<p>MiniMessage also comes with a very simple markdown addon. You can enable it by calling <code class="docutils literal notranslate"><span class="pre">MiniMessage.markdown()</span></code>.</p>
+<p>Note: Markdown will not be escaped when you call <code class="docutils literal notranslate"><span class="pre">escapeTokens</span></code>, <code class="docutils literal notranslate"><span class="pre">stripTokens</span></code> however will work.</p>
+<p>The markdown parser supports the following markup:</p>
+<ul>
+<li><dl>
+<dt>Bold:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">**bold**</span></code> will be transformed into <code class="docutils literal notranslate"><span class="pre">&lt;bold&gt;bold&lt;/bold&gt;</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">__bold__</span></code> will be transformed into <code class="docutils literal notranslate"><span class="pre">&lt;bold&gt;bold&lt;/bold&gt;</span></code> too</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Italic:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">*italic*</span></code> will be transformed into <code class="docutils literal notranslate"><span class="pre">&lt;italic&gt;italic&lt;/italic&gt;</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">_italic_</span></code> will be transformed into <code class="docutils literal notranslate"><span class="pre">&lt;italic&gt;italic&lt;/italic&gt;</span></code> too</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Underline:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">~~underline~~</span></code> will be transformed into <code class="docutils literal notranslate"><span class="pre">&lt;underlined&gt;underline&lt;/underlined&gt;</span></code></p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>New Ideas for additional markup? Open an issue!</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="platform/index.html" class="btn btn-neutral float-right" title="Platforms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="book.html" class="btn btn-neutral float-left" title="Books" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, KyoriPowered
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

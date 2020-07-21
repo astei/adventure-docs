@@ -1,0 +1,257 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Sound &mdash; Adventure 4.0.0-SNAPSHOT documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/kyori.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Titles" href="title.html" />
+    <link rel="prev" title="Boss Bars" href="bossbar.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Adventure
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.0-SNAPSHOT
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="audiences.html">Audiences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="text.html">Text (Chat Components)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serializer/index.html">Text Serializers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bossbar.html">Boss Bars</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Sound</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sending-a-sound">Sending a Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stopping-sounds">Stopping Sounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-custom-sound">Creating a custom sound</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="title.html">Titles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="book.html">Books</a></li>
+<li class="toctree-l1"><a class="reference internal" href="minimessage.html">MiniMessage (Textual format for components)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="platform/index.html">Platforms</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Adventure</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Sound</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>The Adventure docs are currently a <strong>work in progress</strong>. Some areas may have limited coverage or may not be entirely up to date.
+Feel free to join our discord at <a class="reference external" href="https://discord.gg/MMfhJ8F">https://discord.gg/MMfhJ8F</a> if you have any questions.</p>
+</div>
+<div class="section" id="sound">
+<h1>Sound<a class="headerlink" href="#sound" title="Permalink to this headline">¶</a></h1>
+<p>Adventure can play any built-in or resource pack-provided sound.</p>
+<div class="section" id="sending-a-sound">
+<h2>Sending a Sound<a class="headerlink" href="#sending-a-sound" title="Permalink to this headline">¶</a></h2>
+<p>Sounds are referred to using Minecraft’s Keys (also known as <code class="docutils literal notranslate"><span class="pre">Identifier</span></code> or <code class="docutils literal notranslate"><span class="pre">ResourceLocation</span></code>). Any custom sounds from resource packs can be used. If a client does not know about sounds, it will ignore the sound (though a warning will be printed to the client log).</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">playMySound</span><span class="p">(</span><span class="kd">final</span> <span class="nd">@NonNull</span> <span class="n">Audience</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Play a built-in sound at the target&#39;s location with standard volume and pitch</span>
+  <span class="n">target</span><span class="p">.</span><span class="na">playSound</span><span class="p">(</span><span class="n">Key</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;music_disc.13&quot;</span><span class="p">),</span> <span class="n">Sound</span><span class="p">.</span><span class="na">Source</span><span class="p">.</span><span class="na">MUSIC</span><span class="p">,</span> <span class="mf">1f</span><span class="p">,</span> <span class="mf">1f</span><span class="p">);</span>
+  <span class="c1">// Play a sound from our resource pack, with a higher pitch</span>
+  <span class="n">target</span><span class="p">.</span><span class="na">playSound</span><span class="p">(</span><span class="n">Key</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;adventure&quot;</span><span class="p">,</span> <span class="s">&quot;rawr&quot;</span><span class="p">),</span> <span class="n">Sound</span><span class="p">.</span><span class="na">Source</span><span class="p">.</span><span class="na">AMBIENT</span><span class="p">,</span> <span class="mf">1f</span><span class="p">,</span> <span class="mf">1.1f</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="sidebar">
+<p class="sidebar-title">Limitations</p>
+<p>The client can play multiple sounds at once, but as of version 1.16 is limited to 8 sounds playing at once.</p>
+</div>
+</div>
+<div class="section" id="stopping-sounds">
+<h2>Stopping Sounds<a class="headerlink" href="#stopping-sounds" title="Permalink to this headline">¶</a></h2>
+<p>A sound stop will stop the chosen sounds – ranging from every sound the client is playing, to specific named sounds.</p>
+</div>
+<div class="section" id="creating-a-custom-sound">
+<h2>Creating a custom sound<a class="headerlink" href="#creating-a-custom-sound" title="Permalink to this headline">¶</a></h2>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">sounds.json</span></code> to define sounds in a resource pack.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="title.html" class="btn btn-neutral float-right" title="Titles" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="bossbar.html" class="btn btn-neutral float-left" title="Boss Bars" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, KyoriPowered
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
